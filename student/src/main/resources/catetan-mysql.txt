@@ -1,0 +1,25 @@
+linux
+1. remove existing mysql
+sudo apt-get remove --purge mysql*  
+sudo apt-get purge mysql*  
+sudo apt-get autoremove  
+sudo apt-get autoclean  
+sudo apt-get remove dbconfig-mysql
+sudo apt-get update
+
+2. install mysql
+sudo apt install mysql-server
+mysql --version
+sudo systemctl status mysql
+mysql -u root -p
+
+snap install mysql-workbench-community
+snap run mysql-workbench-community
+
+3. cmd mysql
+sudo systemctl start mysql
+sudo systemctl stop mysql
+sudo mysql -u root
+SELECT user,host,authentication_string,plugin,password FROM mysql.user WHERE user='root';
+ALTER USER 'root'@'localhost' IDENTIFIED WITH 'mysql_native_password' BY 'password';
+FLUSH PRIVILEGES;
